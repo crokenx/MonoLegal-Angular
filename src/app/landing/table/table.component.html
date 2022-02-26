@@ -1,0 +1,51 @@
+<div class="table"
+  [ngClass]="{'overflowHidden' : (bills$ | async)?.length === 0}"
+>
+
+  <div class="table__load" *ngIf="(bills$ | async)?.length === 0; else list">
+    <app-loading></app-loading>
+  </div>
+
+  <ng-template #list>
+    <app-table-item *ngFor="let bill of bills$ | async" [bill]="bill"></app-table-item>
+  </ng-template>
+
+</div>
+
+<div class="explaining">
+  <h3 class="explaining__title">Explicación de mi desarrollo</h3>
+  <h4 class="explaining__subtitle">Entendimiento del problema</h4>
+  <p class="explaining__text">
+    Al leer la prueba se da a entender que el feature que se solicita puede ser una de las partes integrantes de una plataforma destinada a un negocio con sistema de facturación recurrente, es decir, el negocio presta un servicio a sus usuarios y les realiza un cobro mensual con saldo vencido, también les realiza recordatorios a los mismos envitando generarles malos reportes.
+  </p>
+  <h4 class="explaining__subtitle">Aproximación al problema</h4>
+  <p class="explaining__text">
+    <span class="explaining__paragraph">
+    Lo primero que se consideró para generar una solución, fue que se presentará una interfaz ligera y clara, a su vez que un sistema de interacciones sencillo, que le entregara al usuario un feedback claro respecto a que estaba ocurriendo en la plataforma en todo momento. La estrategia que se uso fue Desktop First.
+    </span>
+
+    <span class="explaining__paragraph">
+    Revisando los datos entregados en la prueba (CódigoFactura, Cliente, NIT, etc...), es entendible pensar que la aproximación más acertada para presentar los datos de facturación al cliente (Persona encargada de revisar las facturas) sea una tabla, y sería un ataque correcto al problema, pero al nivel de usabilidad no es tan adecuado, debido a que hacer que una tabla sea dinámica y cambie deacuerdo a la resolución de la pantalla es complicado y más aún si no se tiene un mockup claro al cuál hacer referencia, es por eso que se decidio dar solución a la presentación por medio del uso de cards, haciendo uso de esto y de un pocos media querys podemos ver una presentación de facturas realmente responsive, todos sus elementos se verán en su lugar en cualquier resolución de pantalla que quiera utilizar el cliente.
+    </span>
+
+    <span class="explaining__paragraph">
+      También se agrego un campo a la base de datos correspondiente al "email". Se considero necesario al tener que enviar un correo al respectivo dueño de la factura.
+    </span>
+  </p>
+  <h4 class="explaining__subtitle">Al nivel de código</h4>
+  <p class="explaining__text">
+    <span class="explaining__paragraph">
+      Angular es uno de los mejores frameworks en la actualidad, su complejidad está diseñada precisamente para resolver problemas complejos los cuáles requieran escalar rápidamente después de su implementación inicial. Implementar principios SOLID en Angular puede ser un reto para alguien que no tenga un entendimiento claro de lo que es este framework, pero la alta cohesión y el bajo acoplamiento son las bases de este, es por eso que Angular suple al desarrollador con las herramientas más que suficientes para lograr escribir un código limpio y escalable.
+    </span>
+    <span class="explaining__paragraph">
+      En el proyecto se implementaron las herramientas más características que ofrece Angular para lograr una arquitectura limpia y escalable, se pueden encontrar de mayor a menor relevancia, Módulos, Componentes, Servicios y Directivas.Los Guards no se implementaron al no ser requeridos. Se siguieron los parámetros del framework para lograr la funcionalidad de sus partes, como lo es el uso de Observables de RxJs, y lazy loading. Se considero la integración de la libreria Redux, pero para la poca funcionalidad que se requeria para la prueba, no fue necesario.
+    </span>
+    <span class="explaining__paragraph">
+      Otra implementación que se puede apreciar, es la metodología BEM para estilos.
+    </span>
+    <span class="explaining__paragraph">
+      Se uso la segunda sección (About me) que se muestra en la barra de navegación superior para mostrar el uso de router-outlets anidados junto con la carga peresoza (lazy loading).
+    </span>
+  </p>
+</div>
+

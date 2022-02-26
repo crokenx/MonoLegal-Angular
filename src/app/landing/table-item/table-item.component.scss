@@ -1,0 +1,82 @@
+@import '../../../styles.scss';
+
+.card {
+	margin: 2rem 1rem;
+	padding: 1rem;
+
+	box-shadow: $shadow-card;
+
+	border-radius: 5px;
+
+	&__title {
+
+	}
+
+	&__cliente {
+
+	}
+
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	&__actions {
+		text-align: center;
+		padding-top: 1rem;
+	}
+
+	&__button {
+
+		background-color: $color-primary;
+
+		padding: 1rem;
+
+		border: none;
+		border-radius: 5px;
+		box-shadow: $shadow-button;
+
+		min-width: 50%;
+
+		cursor: pointer;
+
+		color: $color-grey-dark-1;
+	}
+}
+
+.grid-line{
+	border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.inactive {
+	background-color: $color-grey-light-1;
+	color: $color-grey-light-2;
+	box-shadow: none;
+	cursor: default;
+}
+
+.loading {
+  background-color: $color-grey-light-2;
+
+	margin: 0 auto;
+
+  border: 0.2rem solid $color-grey-light-1;
+  border-top: 0.2rem solid $color-primary;
+  border-radius: 50%;
+
+  width: 2rem;
+  height: 2rem;
+
+  animation: spin 2s linear infinite;
+
+  &__message {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

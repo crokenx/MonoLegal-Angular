@@ -1,0 +1,57 @@
+@import '../../../styles.scss';
+
+.table {
+	background-color: #fff;
+
+	max-height: 60vh;
+
+	overflow: scroll;
+	overflow-x: hidden;
+
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+
+	@media only screen and (max-width: $bp-large) {
+		max-height: 70vh;
+	}
+
+	&__load {
+		min-height: 60vh;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+
+.explaining {
+
+	width: 100%;
+	max-height: 25vh;
+	background-color: #fff;
+
+	padding: 1rem;
+
+	overflow-y: scroll;
+
+	&__title {
+		margin-bottom: 1rem;
+	}
+
+	&__subtitle {
+		margin-bottom: 1rem;
+	}
+
+	&__text {
+		margin-bottom: 1rem;
+	}
+
+	&__paragraph {
+		display: block;
+		margin-bottom: 1rem;
+	}
+
+}
+
+.overflowHidden {
+	overflow: hidden;
+}

@@ -1,0 +1,17 @@
+<div class="table-container">
+  <div class="personal-presentation">
+    <h2>Postulante: Jesús Enrique Quesada Díaz</h2>
+    <h3>Prueba técnica para: Monolegal SAS </h3>
+  </div>
+  <div class="navigation">
+    <div
+      [ngClass]="{'active' : route == 'table'}"
+      (click)="changeActiveTab()"
+      class="navigation__button" routerLink="table">Facturación</div>
+    <div
+      [ngClass]="{'active' : route == 'me'}"
+      (click)="changeActiveTab()"
+      class="navigation__button" routerLink="me">About me</div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

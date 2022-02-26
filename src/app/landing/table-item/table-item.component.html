@@ -1,0 +1,46 @@
+<div class="card">
+    <h2 class="card__title">Cliente</h2>
+    <h3 class="card__cliente">{{ bill.Cliente }}</h3>
+    <div class="card__body">
+        <h4 class="card__title grid-line">Código factura</h4>
+        <p class="card__text grid-line">{{ bill.CodigoFactura }}</p>
+        <h4 class="card__title grid-line">Ciudad</h4>
+        <p class="card__text grid-line">{{ bill.Ciudad }}</p>
+        <h4 class="card__title grid-line">NIT</h4>
+        <p class="card__text grid-line">{{ bill.NIT }}</p>
+        <h4 class="card__title grid-line">Total Factura</h4>
+        <p class="card__text grid-line">{{ bill.TotalFactura | currency }}</p>
+        <h4 class="card__title grid-line">Sub Total</h4>
+        <p class="card__text grid-line">{{ bill.SubTotal | currency }}</p>
+        <h4 class="card__title grid-line">Iva</h4>
+        <p class="card__text grid-line">{{ bill.Iva | currency }}</p>
+        <h4 class="card__title grid-line">Retención</h4>
+        <p class="card__text grid-line">{{ bill.Retencion | currency }}</p>
+        <h4 class="card__title grid-line">Fecha de creación</h4>
+        <p class="card__text grid-line">{{ bill.FechaCreacion }}</p>
+        <h4 class="card__title grid-line">Estado</h4>
+        <p class="card__text grid-line">{{ reminderNumber(bill.Estado) }}</p>
+        <h4 class="card__title grid-line">Pagada</h4>
+        <p class="card__text grid-line">{{ bill.Pagada ? "SÍ" : "NO" }}</p>
+        <h4 class="card__title grid-line">Fecha Pago</h4>
+        <p class="card__text grid-line">{{ bill.FechaPago.length === 0 ? "---" : bill.FechaPago }}</p>
+    </div>
+    <div class="card__actions">
+        <button
+            appButtonBehavior
+            [waitingResponse$]="waitingResponse$"
+            [ngClass]="{'inactive' : bill.Estado === 'desactivado'}"
+            class="card__button"
+            (click)="sendNotification(bill)"
+            >
+            <span *ngIf="!(waitingResponse$ | async)">
+                {{ buttonText(bill.Estado) }}
+            </span>
+            <div *ngIf="(waitingResponse$ | async)">
+                <div class="loading">
+                </div>
+                <span>Esperando respuesta...</span>
+            </div>
+        </button>
+    </div>
+</div>
