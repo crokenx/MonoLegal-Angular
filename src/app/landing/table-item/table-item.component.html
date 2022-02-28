@@ -23,7 +23,7 @@
         <h4 class="card__title grid-line">Pagada</h4>
         <p class="card__text grid-line">{{ bill.Pagada ? "SÍ" : "NO" }}</p>
         <h4 class="card__title grid-line">Fecha Pago</h4>
-        <p class="card__text grid-line">{{ bill.FechaPago.length === 0 ? "---" : bill.FechaPago }}</p>
+        <p class="card__text grid-line">{{ bill.FechaPago?.length === 0 ? "---" : bill.FechaPago }}</p>
     </div>
     <div class="card__actions">
         <button
